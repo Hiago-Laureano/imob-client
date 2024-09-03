@@ -1,30 +1,66 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <NavBar/>
   <router-view/>
 </template>
 
+<script>
+import NavBar from "./components/NavBar.vue"
+export default{
+  components: {
+    NavBar
+  }
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+*{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
 }
 
-nav {
-  padding: 30px;
+.bg-primary-color{
+  background: rgb(2, 83, 104);
 }
 
-nav a {
+.bg-secondary-color{
+  background: whitesmoke;
+}
+
+.primary-color{
+  color:whitesmoke
+}
+.secondary-color{
+  color: rgb(2, 83, 104);
+}
+
+.btn-app-primary{
+  background: rgb(2, 83, 104);
+  border-radius: 10px;
+  padding: 8px;
+  color: whitesmoke;
   font-weight: bold;
-  color: #2c3e50;
+  border: none;
+  box-shadow: 2px 2px 3px #222;
+}
+.btn-app-secondary{
+  background: whitesmoke;
+  border-radius: 10px;
+  padding: 8px;
+  color: rgb(2, 83, 104);
+  font-weight: bold;
+  border: none;
+  box-shadow: 2px 2px 3px #222;
+
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.input-app{
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
+  background: whitesmoke;
 }
+.input-app:focus{
+  outline: none;
+}
+
 </style>
