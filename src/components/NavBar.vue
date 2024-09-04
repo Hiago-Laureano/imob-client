@@ -1,19 +1,21 @@
 <template>
     <div class="nav px-3 bg-primary-color d-flex flex-row align-items-center justify-content-between">
         <div class="nav-branch d-flex flex-row align-items-center justify-content-end primary-color fs-4">
-            <i class="bi bi-buildings-fill"></i>Imob
+            <router-link id="router-branch" class="router-link primary-color" to="/">
+                <i class="bi bi-buildings-fill"></i>Imob
+            </router-link>
         </div>
         <div class="nav-menu d-flex flex-row align-items-center justify-content-end">
-            <i v-if="! menuActive" @click="openMenu" class="bi bi-list" id="button-menu"></i>
-            <i v-else @click="openMenu" class="bi bi-x" id="button-menu"></i>
+            <i v-if="! menuActive" @click="openMenu" class="bi bi-list primary-color" id="button-menu"></i>
+            <i v-else @click="openMenu" class="bi bi-x primary-color" id="button-menu"></i>
         </div>
         <div class="off-canvas d-flex flex-column bg-secondary-color">
             <div class="off-canvas-head bg-primary-color p-2 primary-color">
                 Olá, seja bem vindo(a), o que você procura?
             </div>
             <div class="off-canvas-body d-flex flex-column p-2">
-                <router-link @click="closeMenu" class="router-link secondary-color" to="/"><i class="bi bi-1-square-fill"></i> - Comprar imóvel</router-link>
-                <router-link @click="closeMenu" class="router-link secondary-color" to="/"><i class="bi bi-2-square-fill"></i> - Alugar imóvel</router-link>
+                <router-link @click="closeMenu" class="router-link secondary-color" to="/property/0/sale"><i class="bi bi-1-square-fill"></i> - Comprar imóvel</router-link>
+                <router-link @click="closeMenu" class="router-link secondary-color" to="/property/1/rent"><i class="bi bi-2-square-fill"></i> - Alugar imóvel</router-link>
                 <router-link @click="closeMenu" class="router-link secondary-color" to="/"><i class="bi bi-3-square-fill"></i> - Anunciar meu imóvel</router-link>
             </div>
         </div>
@@ -77,5 +79,8 @@ export default{
 }
 .off-canvas-head{
     height: 60px;
+}
+#router-branch{
+    height: 33px;
 }
 </style>
