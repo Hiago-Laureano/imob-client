@@ -11,6 +11,11 @@ const routes = [
     path: '/property/:rent/:location',
     name: 'property',
     component: () => import('../views/PropertyView.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: () => import('../views/NotFound.vue')
   }
 ]
 
