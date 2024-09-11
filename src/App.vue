@@ -66,6 +66,13 @@ export default{
 .input-app:focus{
   outline: none;
 }
+.textarea-app{
+  border: 1px solid rgb(2, 83, 104);
+  resize: vertical;
+}
+.textarea-app:focus{
+  outline: none;
+}
 hr{
   width: 90%;
   height: 1px;
@@ -80,5 +87,9 @@ hr{
 }
 .select-app:focus{
   outline: none;
+}
+.btn-transparent{
+  border: none;
+  background: transparent;
 }
 </style>
