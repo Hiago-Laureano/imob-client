@@ -16,7 +16,7 @@
         <div v-if="moreInfos" class="more-info-property bg-secondary-color d-flex flex-column align-items-center pt-5 px-3">
             <i @click="closeMoreInfos" class="bi bi-arrow-left-circle-fill secondary-color fs-1 ms-1 position-absolute top-0 start-0"></i>
             <div class="container-md text-center mb-2">
-                <ImageSlider :images="images_linksData" :API_URL="API_URL" :disabledFunctions="disabledInputs"/>
+                <ImageSlider :id="id" :API_URL="API_URL" :disabledFunctions="disabledInputs"/>
                 <div id="little-infos" class="row justify-content-between">
                     <div class="col-md-3 pb-1">
                         <div class="bg-primary-color primary-color p-1">Tipo de negócio</div>
@@ -105,7 +105,6 @@ export default{
             max_tenantsData: 1,
             min_contract_timeData: 1,
             accept_animalsData: 1,
-            images_linksData: []
         }
     },
     components: {
@@ -225,7 +224,6 @@ export default{
             this.max_tenantsData = 1,
             this.min_contract_timeData = 1,
             this.accept_animalsData = 1,
-            this.images_linksData = []
             fetch(this.API_URL+"/get/"+this.id, {
                 method: "GET",
                 headers: {   
@@ -245,7 +243,6 @@ export default{
                         if(this.for_rentData === 1){
                             this.accept_animalsData = json.data.accept_animals
                         }
-                        this.images_linksData = json.data.images_links
                     })
                 }else{
                     this.nameData = "Erro ao carregar dados!"
