@@ -13,7 +13,8 @@
                 <p class="title text-start fs-3 secondary-color fw-bold pt-2">Sem resultados!</p>
             </div>
         </div>
-    <i @click="passRight" id="arrow-right" class="bi bi-arrow-right-square-fill fs-1 me-2"></i>
+    <i v-if="! loadingMore" @click="passRight" id="arrow-right" class="bi bi-arrow-right-square-fill fs-1 me-2"></i>
+    <div v-else class="spinner-border text-primary" role="status"></div>
     </div>
 </template>
 
@@ -23,10 +24,13 @@ export default{
     name: "CardSlider",
     data(){
         return{
-            data: null,
+            data: [],
             params: "",
             noResults: null,
-            page: 1
+            page: 1,
+            scroll: 0,
+            next: true,
+            loadingMore: false
         }
     },
     components: {
@@ -70,7 +74,6 @@ export default{
     },
     methods: {
         getPropertyes(){
-            this.date = null
             this.params = ""
             this.noResults = null
             if(this.name !== null){this.params+="&name="+this.name}
@@ -90,23 +93,35 @@ export default{
             }).then(res => {
                 if(res.status === 200){
                     res.json().then(json => {
-                        this.data = json.data
+                        for(let i of json.data){
+                            this.data.push(i)
+                        }
                         this.noResults = typeof(this.data[0])
+                        this.next = json.links.next
                     })
                 }else{
                     this.noResults = "undefined"
                 }
+                this.loadingMore = false
             }).catch(e => {
+                this.loadingMore = false
                 this.noResults = "undefined"
             })
         },
         passLeft(){
             let card_box = document.querySelector(".card-box")
             card_box.scrollLeft -= 266
+            this.scroll = card_box.scrollLeft
         },
         passRight(){
             let card_box = document.querySelector(".card-box")
             card_box.scrollLeft += 266
+            if(card_box.scrollLeft === this.scroll && this.next){
+                this.page += 1
+                this.loadingMore = true
+                this.getPropertyes()
+            }
+            this.scroll = card_box.scrollLeft
         }
     },
     created(){
