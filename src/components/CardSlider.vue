@@ -6,8 +6,8 @@
                 <div class="spinner-border text-primary" role="status"></div>
             </div>
             <div class="px-2" v-else v-for="item in data" :key="item.id">
-                <PropertyCard v-if="item.images_links[0]" :id="item.id" :title="item.name" :location="item.location" :price="item.price" :imageLink="item.images_links[0].link" :isSetImage=true :forRent="item.for_rent" :API_URL="API_URL"/>
-                <PropertyCard v-else :id="item.id" :title="item.name" :location="item.location" :price="item.price" :isSetImage=false :forRent="item.for_rent" :API_URL="API_URL"/>
+                <PropertyCard v-if="item.images_links[0]" :id="item.id" :imageLink="item.images_links[0].link" :isSetImage=true :API_URL="API_URL"/>
+                <PropertyCard v-else :id="item.id" :isSetImage=false :API_URL="API_URL"/>
             </div>
             <div v-if="noResults === 'undefined'" class="d-flex flex-column align-items-center w-100">
                 <p class="title text-start fs-3 secondary-color fw-bold pt-2">Sem resultados!</p>
