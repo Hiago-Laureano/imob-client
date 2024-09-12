@@ -1,6 +1,6 @@
 <template>
   <NavBar/>
-  <router-view :API_URL="API_URL"/>
+  <router-view :API_URL="API_URL" :verifyLogin="verifyLogin"/>
   <Footer/>
 </template>
 
@@ -15,6 +15,25 @@ export default{
   data(){
     return{
       API_URL: "http://127.0.0.1:8000"
+    }
+  },
+  methods: {
+    verifyLogin(){
+      fetch(this.API_URL+"/user-get/"+1, {
+        method: "GET",
+        headers: {
+          "Authorization": "Bearer "+localStorage.getItem("auth-token"),
+          "X-Requested-With": "XMLHttpRequest"
+        }
+      }).then(res => {
+        if(res.status === 200 || res.status === 404){
+          localStorage.setItem("auth", "true")
+        }else{
+          localStorage.setItem("auth", "false")
+        }
+      }).catch(e => {
+        localStorage.setItem("auth", "false")
+      })
     }
   }
 }

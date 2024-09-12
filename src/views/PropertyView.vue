@@ -38,7 +38,7 @@
             <button @click="filter" class="btn-app-primary mt-4 mx-auto">Pesquisar</button>
             <hr>
         </div>
-        <CardSlider v-if="searched" class="mt-5" :API_URL="API_URL" :for_rent="selectedRent" :name="nameFilter" :location="locationFilter" :max_price="maxPriceFilter" :bedrooms="bedroomsFilter" :bathrooms="bathroomsFilter"/>
+        <CardSlider v-if="searched" class="mt-5" :API_URL="API_URL" :verifyLogin="verifyLogin" :for_rent="selectedRent" :name="nameFilter" :location="locationFilter" :max_price="maxPriceFilter" :bedrooms="bedroomsFilter" :bathrooms="bathroomsFilter"/>
     </div>
 </template>
 
@@ -83,6 +83,7 @@ export default{
         }
     },
     created(){
+        this.verifyLogin()
         this.updateType()
         if(this.$route.params.rent === "2" && this.$route.params.location !== "0"){
             this.locationFilter = this.$route.params.location
@@ -99,6 +100,10 @@ export default{
         API_URL: {
         type: String,
         required: true
+        },
+        verifyLogin: {
+            type: Function,
+            required: true
         }
     },
     components: {

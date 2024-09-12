@@ -115,7 +115,7 @@ export default{
     },
     mounted(){
         this.getProperty()
-        if(localStorage.getItem("auth-token")){
+        if(localStorage.getItem("auth") === "true"){
             this.disabledInputs = false
         }
     },

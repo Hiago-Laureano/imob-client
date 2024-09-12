@@ -51,11 +51,18 @@ export default {
       locationFilter: ""
     }
   },
+  mounted(){
+    this.verifyLogin()
+  },
   props: {
     API_URL: {
       type: String,
       required: true
-      }
+      },
+    verifyLogin: {
+        type: Function,
+        required: true
+    }
   }
 }
 </script>

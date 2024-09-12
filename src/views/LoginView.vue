@@ -33,10 +33,16 @@ export default{
         API_URL: {
             type: String,
             required: true
+        },
+        verifyLogin: {
+            type: Function,
+            required: true
         }
     },
     mounted(){
-        if(localStorage.getItem("auth-token")){
+        this.verifyLogin()
+        console.log(localStorage.getItem("auth") )
+        if(localStorage.getItem("auth") === "true"){
             this.logged = true
             this.userName = localStorage.getItem("name")
             this.openAlert("success", localStorage.getItem("message"))
