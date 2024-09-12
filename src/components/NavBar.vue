@@ -5,6 +5,11 @@
                 <i class="bi bi-buildings-fill"></i>Imob
             </router-link>
         </div>
+        <div class="menu">
+            <router-link @click="closeMenu" class="router-link primary-color me-3 pt-3" to="/property/0/sale"><i class="bi bi-1-square-fill"></i> - Comprar imóvel</router-link>
+            <router-link @click="closeMenu" class="router-link primary-color me-3 pt-3" to="/property/1/rent"><i class="bi bi-2-square-fill"></i> - Alugar imóvel</router-link>
+            <router-link @click="closeMenu" class="router-link primary-color pt-3" to="/login"><i class="bi bi-3-square-fill"></i> - Acessar minha conta</router-link>
+        </div>
         <div class="nav-menu d-flex flex-row align-items-center justify-content-end">
             <i v-if="! menuActive" @click="openMenu" class="bi bi-list primary-color" id="button-menu"></i>
             <i v-else @click="openMenu" class="bi bi-x primary-color" id="button-menu"></i>
@@ -16,7 +21,7 @@
             <div class="off-canvas-body d-flex flex-column p-2">
                 <router-link @click="closeMenu" class="router-link secondary-color" to="/property/0/sale"><i class="bi bi-1-square-fill"></i> - Comprar imóvel</router-link>
                 <router-link @click="closeMenu" class="router-link secondary-color" to="/property/1/rent"><i class="bi bi-2-square-fill"></i> - Alugar imóvel</router-link>
-                <router-link @click="closeMenu" class="router-link secondary-color" to="/"><i class="bi bi-3-square-fill"></i> - Anunciar meu imóvel</router-link>
+                <router-link @click="closeMenu" class="router-link secondary-color" to="/login"><i class="bi bi-3-square-fill"></i> - Acessar minha conta</router-link>
             </div>
         </div>
     </div>
@@ -53,6 +58,9 @@ export default{
 </script>
 
 <style scoped>
+.menu{
+    display: none;
+}
 .router-link{
     text-decoration: none;
     padding-bottom: 20px;
@@ -82,5 +90,16 @@ export default{
 }
 #router-branch{
     height: 33px;
+}
+@media screen and (min-width: 768px){
+.menu{
+    display: block;
+}
+.nav-menu{
+    display: none !important;
+}
+.off-canvas{
+    display: none !important;
+}
 }
 </style>
