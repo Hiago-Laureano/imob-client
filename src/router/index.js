@@ -18,6 +18,11 @@ const routes = [
     component: () => import('../views/LoginView.vue')
   },
   {
+    path: '/form-property',
+    name: 'form-property',
+    component: () => import('../views/FormPropertyView.vue')
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
     component: () => import('../views/NotFound.vue')

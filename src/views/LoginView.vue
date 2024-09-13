@@ -16,6 +16,9 @@
         <div v-else class="d-flex flex-column align-items-center justify-content-center">
             <p class="title text-center fs-3 bg-primary-color primary-color fw-bold pt-2 rounded p-2 mt-3">Olá, {{userName}}</p>
             <Alert v-if="alert[0]" :type="alert[1]" :text="alert[2]" class="mx-3 mt-3"/>
+            <button v-if="! loading" class="btn-app-primary mt-2 mb-4 bg-success">
+                <router-link class="router-link primary-color text-decoration-none" to="/form-property"><i class="bi bi-house-add-fill fs-5 pe-2"></i>Adicionar imóvel</router-link>
+            </button>    
             <button v-if="! loading" @click="logout" class="btn-app-primary mt-2 mb-4 bg-danger"><i class="bi bi-door-open-fill me-2"></i>Sair</button>
             <div v-else class="spinner-border text-primary mt-2 mb-4" role="status"></div>
         </div>
@@ -41,7 +44,6 @@ export default{
     },
     mounted(){
         this.verifyLogin()
-        console.log(localStorage.getItem("auth") )
         if(localStorage.getItem("auth") === "true"){
             this.logged = true
             this.userName = localStorage.getItem("name")
