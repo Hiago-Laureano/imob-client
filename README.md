@@ -7,9 +7,9 @@
 Um simples sistema responsivo projetado para imobiliárias. O projeto apresenta os imóveis disponíveis da empresa, além, de permitir a inserção, atualização e deleção. Este sistema consome a API REST [Imob API](https://github.com/Hiago-Laureano/imob-api).
 
 <h1 align="center">
-    <img src="./public/README/img1.png" width="300"/>
-    <img src="./public/README/img2.png" width="300"/>
-    <img src="./public/README/img3.png" width="300"/>
+    <img src="./public/README/home1.png" width="300"/>
+    <img src="./public/README/home2.png" width="300"/>
+    <img src="./public/README/info_house.png" width="300"/>
 </h1>
 
 ## Requisitos
