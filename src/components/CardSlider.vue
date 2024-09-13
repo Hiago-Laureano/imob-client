@@ -2,7 +2,7 @@
     <div class="card-slider d-flex flex-row align-items-center justify-content-start mx-3">
         <i @click="passLeft" id="arrow-left" class="bi bi-arrow-left-square-fill fs-1"></i>
         <div class="card-box d-flex flex-row align-items-center justify-content-start">
-            <div v-if="! data && noResults !== 'undefined'" class="d-flex flex-column align-items-center w-100">
+            <div v-if="loading" class="d-flex flex-column align-items-center w-100">
                 <div class="spinner-border text-primary" role="status"></div>
             </div>
             <div class="px-2" v-else v-for="item in data" :key="item.id">
@@ -24,6 +24,7 @@ export default{
     name: "CardSlider",
     data(){
         return{
+            loading: false,
             data: [],
             params: "",
             noResults: null,
@@ -74,6 +75,7 @@ export default{
     },
     methods: {
         getPropertyes(){
+            this.loading = true
             this.params = ""
             this.noResults = null
             if(this.name !== null){this.params+="&name="+this.name}
@@ -103,9 +105,11 @@ export default{
                     this.noResults = "undefined"
                 }
                 this.loadingMore = false
+                this.loading = false
             }).catch(e => {
                 this.loadingMore = false
                 this.noResults = "undefined"
+                this.loading = false
             })
         },
         passLeft(){
