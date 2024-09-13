@@ -4,8 +4,8 @@
             <span v-if="for_rentData" class="badge rounded-pill bg-info">Aluguel mensal de: R$ {{priceData.toString().replace(".", ",")}}</span>
             <span v-else class="badge rounded-pill bg-danger">À venda por: R$ {{priceData.toString().replace(".", ",")}}</span>
             <div class="card-header d-flex flex-column align-items-center">
-                <img v-if="isSetImage" id="image" :src="API_URL+'/'+imageLink" alt="Imagem não encontrada">
-                <img v-else id="image" src=@/assets/noImageProperty.webp alt="Imagem não encontrada">
+                <img v-if="isSetImage" id="image" :src="API_URL+'/'+imageLink" alt="Imagem não encontrada" width="100%">
+                <img v-else id="image" src=@/assets/noImageProperty.webp alt="Imagem não encontrada" width="100%">
             </div>
             <hr>
             <div class="card-body p-2 mb-2">
@@ -282,6 +282,9 @@ export default{
 </script>
 
 <style scoped>
+.bi-arrow-left-circle-fill:hover{
+    cursor: pointer
+}
 .title{
     text-align: justify;
 }
