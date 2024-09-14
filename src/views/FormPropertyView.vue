@@ -41,7 +41,7 @@
                     <input v-model="max_tenants" type="number" class="input-app">
                 </div>
                 <div class="box-input d-flex flex-column align-itens-center justify-content-center mt-3">
-                    <span class="badge bg-info mx-auto">Tempo Mínimo de Contrato</span>
+                    <span class="badge bg-info mx-auto">Tempo Mínimo de Contrato em Meses</span>
                     <input v-model="min_contract_time" type="number" class="input-app">
                 </div>
                 <div class="box-input d-flex flex-column align-itens-center justify-content-center mt-3">

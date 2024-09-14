@@ -37,7 +37,7 @@
                         <input v-model="bathroomsData" type="number" class="textarea-app w-100" :disabled="disabledInputs">
                     </div>
                     <div v-if="for_rentData" class="col-md-3 pb-1">
-                        <div class="bg-primary-color primary-color p-1">Tempo mínimo de contrato</div>
+                        <div class="bg-primary-color primary-color p-1">Tempo mínimo de contrato em meses</div>
                         <input v-model="min_contract_timeData" type="number" class="textarea-app w-100" :disabled="disabledInputs">
                     </div>
                     <div v-if="for_rentData" class="col-md-3 pb-1">
