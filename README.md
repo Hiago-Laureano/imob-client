@@ -17,6 +17,10 @@ Um simples sistema responsivo projetado para imobiliárias. O projeto apresenta 
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
 
+### Contato via WhatsApp
+
+No arquivo PropertyCard.vue existe a variável **phoneNumber**, substitua o valor inicial pelo número telefônico que será usado para clientes entrarem em contato via WhatsApp. Ex.: o número (00) 00000-1111 deve ser informado assim 5500000001111. Note que no início foi adicionado 55, este é o código do Brasil e é necessário para números telefônicos brasileiros.
+
 ### Para instalar as dependências, execute o seguinte comando:
 ```
 npm install
