@@ -88,7 +88,7 @@ export default{
             }else if(this.for_rent === "Apenas aluguel"){
                 this.params+="&for_rent=1"
             }
-            fetch(this.API_URL+"/get-all?page="+this.page+this.params, {
+            fetch(this.API_URL+"/properties?page="+this.page+this.params, {
                 method: "GET",
                 headers: {
                 }

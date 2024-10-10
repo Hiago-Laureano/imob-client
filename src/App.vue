@@ -19,7 +19,7 @@ export default{
   },
   methods: {
     verifyLogin(){
-      fetch(this.API_URL+"/user-get/"+1, {
+      fetch(this.API_URL+"/user/"+1, {
         method: "GET",
         headers: {
           "Authorization": "Bearer "+localStorage.getItem("auth-token"),

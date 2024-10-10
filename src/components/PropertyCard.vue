@@ -139,7 +139,7 @@ export default{
                 "for_rent": this.for_rentData, "max_tenants": this.max_tenantsData, "min_contract_time": this.min_contract_timeData,
                 "accept_animals": this.accept_animalsData}
             }
-            fetch(this.API_URL+"/update/"+this.id, {
+            fetch(this.API_URL+"/properties/"+this.id, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -167,7 +167,7 @@ export default{
             })
         },
         deleteInfos(){
-            fetch(this.API_URL+"/delete/"+this.id, {
+            fetch(this.API_URL+"/properties/"+this.id, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
@@ -224,7 +224,7 @@ export default{
             this.max_tenantsData = 1,
             this.min_contract_timeData = 1,
             this.accept_animalsData = 1,
-            fetch(this.API_URL+"/get/"+this.id, {
+            fetch(this.API_URL+"/properties/"+this.id, {
                 method: "GET",
                 headers: {   
                 }

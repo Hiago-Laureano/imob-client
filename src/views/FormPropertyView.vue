@@ -133,7 +133,7 @@ export default{
                     form.append("accept_animals", this.accept_animals)
                 }
 
-                fetch(this.API_URL+"/post", {
+                fetch(this.API_URL+"/properties", {
                     method: "POST",
                     headers: {
                         "Authorization": "Bearer "+localStorage.getItem("auth-token"),

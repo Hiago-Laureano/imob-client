@@ -57,7 +57,7 @@ export default{
     methods: {
         getImages(){
             this.images = []
-            fetch(this.API_URL+"/get/"+this.id, {
+            fetch(this.API_URL+"/properties/"+this.id, {
                 method: "GET",
                 headers: {   
                 }
